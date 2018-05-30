@@ -1,13 +1,22 @@
 import React from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import {Button, StyleSheet, Text, TextInput, View} from 'react-native';
 import { connect } from "react-redux";
 import { changeName } from "../../action/postAction";
 
 class LoginPageContainer extends React.Component {
+    static navigationOptions = {
+        header: null,
+    };
+    constructor(props) {
+        super(props);
+        this.state = { text: 'Useless Placeholder' };
+    }
     changeName = () => {
         if(this.props.store.name !== 'Ivan')
             this.props.createName('Ivan');
         else this.props.createName('Dima');
+
+        this.props.navigation.navigate('Menu')
     };
     render() {
         return (
@@ -17,6 +26,11 @@ class LoginPageContainer extends React.Component {
                 <Button
                     onPress={this.changeName}
                     title={this.props.store.name}
+                />
+                <TextInput
+                    style={StyleSheet.textInput}
+                    onChangeText={(text) => this.setState({text})}
+                    value={this.state.text}
                 />
             </View>
         );
@@ -41,5 +55,12 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 24
+    },
+    textInput: {
+        height: 100,
+        width: 150,
+        borderColor: 'gray',
+        borderWidth: 1
     }
+
 });
