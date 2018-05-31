@@ -12,7 +12,7 @@ class MenuPageContainer extends React.Component {
                 <Text>Ура получилось</Text>
                 <Button
                     onPress={() => this.props.navigation.navigate('Login')}
-                    title="ДАЛЬШЕ СУКА"
+                    title="ДАЛЬШЕ"
                 />
             </View>
         );

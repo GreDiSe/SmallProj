@@ -1,7 +1,9 @@
 import React from 'react';
-import {Button, StyleSheet, Text, TextInput, View} from 'react-native';
+import { StyleSheet, Text, View} from 'react-native';
 import { connect } from "react-redux";
 import { changeName } from "../../action/postAction";
+import { Input, Button } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 class LoginPageContainer extends React.Component {
     static navigationOptions = {
@@ -11,26 +13,49 @@ class LoginPageContainer extends React.Component {
         super(props);
         this.state = { text: 'Useless Placeholder' };
     }
-    changeName = () => {
-        if(this.props.store.name !== 'Ivan')
-            this.props.createName('Ivan');
-        else this.props.createName('Dima');
-
+    onSubmitClick = () => {
         this.props.navigation.navigate('Menu')
     };
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.title}>Wideapp y y</Text>
-                <Text>Убейте меня</Text>
-                <Button
-                    onPress={this.changeName}
-                    title={this.props.store.name}
+                <Text style={styles.header}>Wideapp</Text>
+                <Text style={styles.title}>Login</Text>
+
+                <Input
+                    placeholder='Input your email'
+                    leftIcon={
+                        <Icon
+                            name='envelope'
+                            size={24}
+                            color='black'
+                        />
+                    }
                 />
-                <TextInput
-                    style={StyleSheet.textInput}
-                    onChangeText={(text) => this.setState({text})}
-                    value={this.state.text}
+
+                <Input
+                    placeholder='Input your password'
+                    inputContainerStyle={styles.textInput}
+                    leftIcon={
+                        <Icon
+                            name='lock'
+                            size={24}
+                            color='black'
+                        />
+                    }
+                />
+
+                <Button
+                    onPress={this.onSubmitClick}
+                    title={'SING IN'}
+                    icon={
+                        <Icon
+                            name='check-circle'
+                            size={15}
+                            color='white'
+                        />
+                    }
+                    buttonStyle={styles.button}
                 />
             </View>
         );
@@ -47,6 +72,17 @@ export default connect(
 )(LoginPageContainer);
 
 const styles = StyleSheet.create({
+    button: {
+        marginTop: 15,
+        width: 300,
+        height: 45
+    },
+    header: {
+        fontSize: 23,
+        position: 'absolute',
+        top: 10,
+        right: 10
+    },
     container: {
         flex: 1,
         backgroundColor: '#fff',
@@ -54,13 +90,11 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     title: {
-        fontSize: 24
+        fontSize: 26
     },
     textInput: {
-        height: 100,
-        width: 150,
-        borderColor: 'gray',
-        borderWidth: 1
+        marginTop: 10,
+        marginBottom: 10
     }
 
 });
