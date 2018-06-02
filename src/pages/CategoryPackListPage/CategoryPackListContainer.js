@@ -1,19 +1,21 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import BottomMenu from './BottomMenu';
 import TopInfo from '../../component/TopInfo/TopInfo';
-import CenterMenu from "./CenterMenu";
+import CategoryList from "./CategoryList";
 
-export default class MenuPageContainer extends React.Component {
+export default class CategoryPackListContainer extends React.Component {
     static navigationOptions = {
         header: null,
     };
     render() {
+        const packsList = this.props.navigation.getParam('packsInfo', []);
         return (
             <View style={styles.container}>
                 <TopInfo/>
-                <CenterMenu navigation={this.props.navigation}/>
-                <BottomMenu navigation={this.props.navigation}/>
+                <CategoryList
+                    navigation={this.props.navigation}
+                    packsList={packsList}
+                />
             </View>
         );
     }

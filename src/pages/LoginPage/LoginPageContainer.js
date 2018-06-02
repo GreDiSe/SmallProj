@@ -1,8 +1,8 @@
 import React from 'react';
-import { StyleSheet, Text, View} from 'react-native';
+import {StatusBar, StyleSheet, Text, View} from 'react-native';
 import { connect } from "react-redux";
 import { changeName } from "../../action/postAction";
-import { Input, Button } from 'react-native-elements';
+import { Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 class LoginPageContainer extends React.Component {
@@ -19,43 +19,34 @@ class LoginPageContainer extends React.Component {
     render() {
         return (
             <View style={styles.container}>
+                <StatusBar hidden={true}/>
                 <Text style={styles.header}>Wideapp</Text>
-                <Text style={styles.title}>Login</Text>
+                <Text style={styles.title}>Log In to Wideapp</Text>
 
-                <Input
-                    placeholder='Input your email'
-                    leftIcon={
+                <Button
+                    onPress={this.onSubmitClick}
+                    title={'Log In with Facebook'}
+                    icon={
                         <Icon
-                            name='envelope'
-                            size={24}
-                            color='black'
+                            name='facebook-square'
+                            size={17}
+                            color='white'
                         />
                     }
-                />
-
-                <Input
-                    placeholder='Input your password'
-                    inputContainerStyle={styles.textInput}
-                    leftIcon={
-                        <Icon
-                            name='lock'
-                            size={24}
-                            color='black'
-                        />
-                    }
+                    buttonStyle={styles.buttonFacebook}
                 />
 
                 <Button
                     onPress={this.onSubmitClick}
-                    title={'SING IN'}
+                    title={'Log In with Google+'}
                     icon={
                         <Icon
-                            name='check-circle'
-                            size={15}
+                            name='google-plus'
+                            size={17}
                             color='white'
                         />
                     }
-                    buttonStyle={styles.button}
+                    buttonStyle={styles.buttonGoogle}
                 />
             </View>
         );
@@ -72,7 +63,7 @@ export default connect(
 )(LoginPageContainer);
 
 const styles = StyleSheet.create({
-    button: {
+    buttonFacebook: {
         marginTop: 15,
         width: 300,
         height: 45
@@ -92,9 +83,11 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 26
     },
-    textInput: {
+    buttonGoogle: {
+        backgroundColor: 'red',
+        width: 300,
         marginTop: 10,
-        marginBottom: 10
+        marginBottom: 10,
+        height: 45
     }
-
 });

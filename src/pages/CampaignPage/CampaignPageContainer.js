@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import BottomMenu from './BottomMenu';
 import TopInfo from '../../component/TopInfo/TopInfo';
-import CenterMenu from "./CenterMenu";
+import CampaignList from "./CampaignList";
+import {connect} from "react-redux";
 
-export default class MenuPageContainer extends React.Component {
+class CampaignPageContainer extends React.Component {
     static navigationOptions = {
         header: null,
     };
@@ -12,8 +12,10 @@ export default class MenuPageContainer extends React.Component {
         return (
             <View style={styles.container}>
                 <TopInfo/>
-                <CenterMenu navigation={this.props.navigation}/>
-                <BottomMenu navigation={this.props.navigation}/>
+                <CampaignList
+                    navigation={this.props.navigation}
+                    default_category={this.props.default_category}
+                />
             </View>
         );
     }
@@ -28,3 +30,9 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     }
 });
+
+export default connect(
+    state => ({
+        default_category: state.gameInfo.default_category
+    })
+)(CampaignPageContainer);

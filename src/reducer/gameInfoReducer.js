@@ -4,6 +4,4 @@ import {
 import initialState from '../store/initialState';
 import injectReducer from './helper/injectReducer';
 
-export default injectReducer(initialState.store, {
-    [`${CHANGE_NAME}`]: (state, action) => ({ name: action.name }),
-})
+export default injectReducer(initialState.gameInfo, {})

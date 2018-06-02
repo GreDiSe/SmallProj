@@ -1,6 +1,8 @@
-import store from './postReducer';
-import { combineReducers } from 'redux'
+import gameInfo from './gameInfoReducer';
+import userInfo from './userInfoReducer';
+import { combineReducers } from 'redux';
 
 export default combineReducers({
-    store,
+    userInfo,
+    gameInfo
 })
