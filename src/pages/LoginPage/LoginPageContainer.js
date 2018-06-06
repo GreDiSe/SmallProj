@@ -9,6 +9,9 @@ class LoginPageContainer extends React.Component {
     static navigationOptions = {
         header: null,
     };
+    componentWillMount() {
+        StatusBar.setHidden(true)
+    }
     constructor(props) {
         super(props);
         this.state = { text: 'Useless Placeholder' };
@@ -72,13 +75,15 @@ const styles = StyleSheet.create({
         fontSize: 23,
         position: 'absolute',
         top: 10,
-        right: 10
+        right: 10,
     },
     container: {
+        paddingTop: 10,
+        top: 0,
         flex: 1,
-        backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
+        zIndex: 10000
     },
     title: {
         fontSize: 26

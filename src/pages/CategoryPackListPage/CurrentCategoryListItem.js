@@ -46,6 +46,13 @@ export default class CurrentListItem extends React.Component {
                 title={item.pack.title}
                 subtitle={item.pack.description}
                 titleStyle={styles.title}
+                onPress={() => {
+                    if(item.has)
+                        this.props.navigation.navigate('TaskPage', {
+                            asks: item.pack.asks
+                        })
+                }}
+
                 leftIcon={
                     <Icon
                         name={item.has ? 'unlock-alt' : 'lock'}

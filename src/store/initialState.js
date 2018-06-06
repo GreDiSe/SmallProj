@@ -25,7 +25,39 @@ export default {
                         pack: {
                             price: 20,
                             title: 'TOP films',
-                            description: 'easy'
+                            description: 'easy',
+                            asks: [
+                                {
+                                    number: 1,
+                                    ask: ['coffee', 'grapes', 'sob', 'train'],
+                                    answer_options: ['Лох, лох, лох...', 'Молодец', 'Лайфхакер', 'Гэй'],
+                                    right_answer: 0
+                                },
+                                {
+                                    number: 2,
+                                    ask: ['coffee', 'coffee', 'coffee', 'coffee'],
+                                    answer_options: ['Ответ1', 'Ответ2', 'Ответ3', 'Ответ4'],
+                                    right_answer: 1
+                                },
+                                {
+                                    number: 3,
+                                    ask: ['coffee', 'coffee', 'coffee', 'coffee'],
+                                    answer_options: ['Ответ1', 'Ответ2', 'Ответ3', 'Ответ4'],
+                                    right_answer: 3
+                                },
+                                {
+                                    number: 4,
+                                    ask: ['coffee', 'coffee', 'coffee', 'coffee'],
+                                    answer_options: ['Ответ1', 'Ответ2', 'Ответ3', 'Ответ4'],
+                                    right_answer: 2
+                                },
+                                {
+                                    number: 5,
+                                    ask: ['coffee', 'coffee', 'coffee', 'coffee'],
+                                    answer_options: ['Ответ1', 'Ответ2', 'Ответ3', 'Ответ4'],
+                                    right_answer: 1
+                                }
+                            ]
                         }
                     },
                     {
@@ -35,7 +67,15 @@ export default {
                         pack: {
                             price: 50,
                             title: 'Govno films',
-                            description: 'easy'
+                            description: 'easy',
+                            asks: [
+                                {
+                                    number: 1,
+                                    ask: 'Вопрос1',
+                                    answer_options: ['Ответ1', 'Ответ2', 'Ответ3', 'Ответ4'],
+                                    right_answer: 1
+                                }
+                            ]
                         }
                     },
                     {
@@ -45,7 +85,8 @@ export default {
                         pack: {
                             price: 540,
                             title: 'Marvel films',
-                            description: 'medium'
+                            description: 'medium',
+                            asks: []
                         }
                     },
                     {
@@ -55,7 +96,8 @@ export default {
                         pack: {
                             price: 230,
                             title: 'DC films',
-                            description: 'hard'
+                            description: 'hard',
+                            asks: []
                         }
                     },
                 ]
@@ -72,7 +114,8 @@ export default {
                         pack: {
                             price: 12,
                             title: 'Amine1',
-                            description: 'easy'
+                            description: 'easy',
+                            asks: []
                         }
                     }
                 ]
@@ -89,7 +132,8 @@ export default {
                         pack: {
                             price: 12,
                             title: 'Amine1',
-                            description: 'easy'
+                            description: 'easy',
+                            asks: []
                         }
                     }
                 ]
@@ -106,7 +150,8 @@ export default {
                         pack: {
                             price: 12,
                             title: 'Govno',
-                            description: 'easy'
+                            description: 'easy',
+                            asks: []
                         }
                     }
                 ]
